@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -20,6 +21,7 @@ public abstract class TelaDeCadastro extends JPanel{
 	JButton btnListar = new JButton("Listar");
 	JButton btnAlterar = new JButton("Alterar");
 	JTextField txtId = new JTextField("Digite Id Para Alterar");
+	JList<String> list;
 	
 	public TelaDeCadastro(int nLinhas,int nColunas) {
 		//https://docs.oracle.com/javase/tutorial/uiswing/layout/layoutlist.html
@@ -27,12 +29,13 @@ public abstract class TelaDeCadastro extends JPanel{
 		BorderLayout borderLayout = new BorderLayout();
 		this.setLayout(borderLayout);
 
+		//PAINEL PARA CAMPOS DO FORMULARIO
 		//https://docs.oracle.com/javase/tutorial/uiswing/layout/grid.html
 		GridLayout layoutParaCampos = new GridLayout(nLinhas,nColunas);		
 		painelParaCampos.setLayout(layoutParaCampos);					
 		this.add(painelParaCampos, BorderLayout.CENTER);
 		
-		
+		//PAINEL DE BOTOES
 		this.painelDeBotoes = new JPanel();
 		this.btnSalvar = new JButton("Salvar");
 		this.btnLimpar = new JButton("Limpar");
@@ -46,6 +49,11 @@ public abstract class TelaDeCadastro extends JPanel{
 		
 		this.add(painelDeBotoes,BorderLayout.SOUTH);
 		
+		//PAINEL PARA LISTAGEM
+		list = new JList<String>();
+		this.painelListagem.add(list);
+		this.add(painelListagem, BorderLayout.EAST);
+		
 	}
 	
 	abstract void limparFormulario() throws SQLException;
@@ -53,5 +61,6 @@ public abstract class TelaDeCadastro extends JPanel{
 	abstract void cancelar() throws SQLException;
 	abstract void alterar() throws 	SQLException;
 	abstract void excluir() throws 	SQLException;
+	abstract void listar() throws 	SQLException;
 	
 }
