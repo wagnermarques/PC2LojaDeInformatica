@@ -13,8 +13,8 @@ public class JdbcUtil {
     private static String connectionUrl="jdbc:sqlserver://172.17.0.2:1433;databaseName=lojainfo";
     //private static String connectionUrl="jdbc:jtds:172.17.0.2:1433;databaseName=lojainfo;integratedSecurity=true";   
 
-    private static String connectionUsername="sa";
-    private static String connectionPassword="Aluno#123";
+    //private static String connectionUsername="sa";
+    //private static String connectionPassword="Aluno#123";
 
 
     //private static String connectionDriverClass="org.gjt.mm.mysql.Driver";
@@ -32,10 +32,9 @@ public class JdbcUtil {
 			return JdbcUtil.conn;
 		}else {
 			Class.forName(connectionDriverClass);
-			return DriverManager.getConnection(
-					JdbcUtil.connectionUrl,
-					JdbcUtil.connectionUsername,
-					JdbcUtil.connectionPassword);
+			return DriverManager.getConnection(JdbcUtil.connectionUrl);
+                        //JdbcUtil.connectionUsername,
+			//		JdbcUtil.connectionPassword);
 		}
 	}
 	

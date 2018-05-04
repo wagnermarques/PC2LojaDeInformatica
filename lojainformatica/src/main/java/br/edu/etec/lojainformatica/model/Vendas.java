@@ -2,7 +2,12 @@ package br.edu.etec.lojainformatica.model;
 
 import java.util.Date;
 
+import javax.persistence.*;
+
+@Entity
 public class Vendas {
+	
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id_venda;
 	private Integer id_cliente; 
 	private Date data;

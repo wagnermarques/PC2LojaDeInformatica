@@ -1,6 +1,11 @@
 package br.edu.etec.lojainformatica.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Hardware {
+    
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_hardware;
 	private String descricao;
 	private double preco_unit;

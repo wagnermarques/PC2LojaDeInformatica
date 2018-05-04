@@ -1,7 +1,11 @@
 package br.edu.etec.lojainformatica.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Cliente {
-	
+
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id_cliente;
 	private String nome;
 	private String endereco;
